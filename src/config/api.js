@@ -1,0 +1,1 @@
+export const MainURL = "https://react-game-review-default-rtdb.europe-west1.firebasedatabase.app/"
