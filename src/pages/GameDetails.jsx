@@ -4,7 +4,7 @@ function GameDetails() {
 
   return (
     <>
-      <h1>Game Review</h1>
+      <h1>GAME DETAILS</h1>
     </>
   )
 }

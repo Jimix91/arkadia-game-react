@@ -1,0 +1,148 @@
+/* ======================
+   RESET & BASE
+====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #2b2b2b, #121212 65%);
+  color: #eaeaea;
+  min-height: 100vh;
+}
+
+/* ======================
+   NAVBAR
+====================== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1.5rem 0;
+}
+
+nav a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #9fa4ff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+/* underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #ffd369;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* active link */
+nav a.active {
+  color: #ffffff;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* ======================
+   HOMEPAGE
+====================== */
+.home {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.home-title {
+  text-align: center;
+  font-size: 4rem;
+  letter-spacing: 0.18em;
+  margin: 4rem 0 3rem;
+  font-weight: 700;
+  color: #f5f5f5;
+}
+
+/* ======================
+   GAME LIST
+====================== */
+.game-list {
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* GAME CARD */
+.game-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* TITLE */
+.game-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* IMAGE */
+.game-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  object-fit: cover;
+}
+
+/* DESCRIPTION */
+.game-description {
+  flex-grow: 1;
+  line-height: 1.6;
+  color: #d6d6d6;
+  margin-bottom: 1rem;
+}
+
+/* RATING */
+.rating {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffd369;
+  text-align: right;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 600px) {
+  .home-title {
+    font-size: 2.8rem;
+  }
+}

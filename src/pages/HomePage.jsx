@@ -1,14 +1,12 @@
-import Navbar from "../components/Navbar"
+import "./HomePage.css"
 import GameList from "../components/GameList"
 
 function HomePage() {
-  
-
   return (
-    <>
-      <h1>Game Review</h1>
-      <GameList/>
-    </>
+    <div className="home">
+      <h1 className="home-title">ARKANIA</h1>
+      <GameList />
+    </div>
   )
 }
 
