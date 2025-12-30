@@ -12,7 +12,12 @@ body {
   background: radial-gradient(circle at top, #2b2b2b, #121212 65%);
   color: #eaeaea;
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 /* ======================
    NAVBAR
@@ -22,6 +27,7 @@ nav {
   justify-content: center;
   gap: 2.5rem;
   padding: 1.5rem 0;
+  text-align: center;
 }
 
 nav a {
@@ -68,31 +74,38 @@ nav a.active::after {
    HOMEPAGE
 ====================== */
 .home {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 4rem;
+  text-align: center;
 }
 
 .home-title {
-  text-align: center;
   font-size: 4rem;
   letter-spacing: 0.18em;
   margin: 4rem 0 3rem;
   font-weight: 700;
-  color: #f5f5f5;
+  color: #e4b536;
 }
 
 /* ======================
    GAME LIST
 ====================== */
 .game-list {
-  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 1400px; /* antes 1200 */
+  padding: 1rem;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, minmax(350px, 1fr));
+  gap: 2.5rem;
+
+  place-content: center;
 }
 
-/* GAME CARD */
+/* ======================
+   GAME CARD
+====================== */
 .game-card {
   background: rgba(255, 255, 255, 0.04);
   border-radius: 16px;
@@ -101,6 +114,7 @@ nav a.active::after {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .game-card:hover {
@@ -111,12 +125,15 @@ nav a.active::after {
 /* TITLE */
 .game-card h2 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  color: #6436e4;
 }
 
 /* IMAGE */
 .game-image {
   width: 100%;
+  height: 160px;
   border-radius: 12px;
   margin-bottom: 1.2rem;
   object-fit: cover;
@@ -124,7 +141,6 @@ nav a.active::after {
 
 /* DESCRIPTION */
 .game-description {
-  flex-grow: 1;
   line-height: 1.6;
   color: #d6d6d6;
   margin-bottom: 1rem;
@@ -132,16 +148,36 @@ nav a.active::after {
 
 /* RATING */
 .rating {
-  font-size: 1.1rem;
+  margin-top: auto;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #ffd369;
-  text-align: right;
+  text-align: center;
 }
-
+.detailslink {
+  text-align: center;
+  margin-top: 30px
+}
 /* ======================
    RESPONSIVE
 ====================== */
-@media (max-width: 600px) {
+@media (max-width: 1100px) {
+  .game-list {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .game-list {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .game-list {
+    grid-template-columns: 1fr;
+  }
+
   .home-title {
     font-size: 2.8rem;
   }

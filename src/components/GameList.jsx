@@ -43,7 +43,7 @@ function GameList() {
 
           <div className="rating">⭐ {game.averageRating}</div>
 
-          <button> <NavLink to= {`/games/:${gameID}`}> Detalles</NavLink> </button>
+           <NavLink to= {`/games/:${gameID}`} className="detailslink"> Detalles</NavLink> 
         </div>
       ))}
     </div>
