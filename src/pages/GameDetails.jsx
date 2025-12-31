@@ -1,58 +1,50 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { MainURL } from "../config/api"
-import { NavLink, useParams } from "react-router-dom"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { MainURL } from "../config/api";
+import { useParams, NavLink } from "react-router-dom";
+import "../CSS/GameDetails.css"
 
-function GameList() {
-  const [games, setGames] = useState([])
-  const {gameID}= useParams()
+function GameDetails() {
+  const { gameID } = useParams(); 
+  const [game, setGame] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!gameID) return;
+
     axios
-      .get(`${MainURL}/games.json`)
+      .get(`${MainURL}/games/${gameID}.json`)
       .then((response) => {
-        const gamesObject = response.data || {}
-
-        const gamesArr = Object.keys(gamesObject).map((id) => ({
-          id,
-          ...gamesObject[id],
-        }))
-
-        setGames(gamesArr)
+        setGame(response.data);
       })
       .catch((err) => {
-        console.log("Error loading...", err)
+        console.log("Error loading...", err);
       })
-  }, [])
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [gameID]);
+
+  if (loading) return <p>Cargando...</p>;
+  if (!game) return <p>Juego no encontrado</p>;
 
   return (
-    <div className="game-list">
-      {games.map((game) => (
-        <div className="game-card" key={game.id}>
-          <h2>{game.name}</h2>
+    <div className="game-card">
+      <h2>{game.name}</h2>
+      {game.image && <img src={game.image} alt={game.name} />}
+      <p>{game.description}</p>
+      <p>Developer: {game.developer}</p>
+      <p>Genres: {game.genres}</p>
+      <p>Platforms: {game.platforms}</p>
+      <p>⭐ {game.averageRating}</p>
 
-          {game.image && (
-            <img
-              src={game.image}
-              alt={`Imagen de ${game.name}`}
-              className="game-image"
-            />
-          )}
-
-          <p className="game-description">{game.description}</p>
-          <p className="game-description">{game.developer}</p>
-
-          <div className="rating">⭐ {game.averageRating}</div>
-          <p className="game-description">{game.genres}</p>
-          <p className="game-description">{game.platforms}</p>
-          <div className="rating">⭐ {game.reviews}</div>
-
-           <button><NavLink to= {`/games/edit/:${gameID}`} className="editlink"> Edit</NavLink></button> 
-           <button onClick={onDelete}>Delete</button>
-        </div>
-      ))}
+      <NavLink to={`/games/${gameID}/edit`}>
+        <button>Edit</button>
+      </NavLink>
+      <button>DeleteGame</button>
     </div>
-  )
+  );
 }
 
-export default GameList
+export default GameDetails;
+

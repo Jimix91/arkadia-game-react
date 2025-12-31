@@ -1,0 +1,101 @@
+
+/* Contenedor general centrado */
+.game-card {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* Título del juego */
+.game-card h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Imagen del juego */
+.game-card img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Descripción y detalles */
+.game-card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Rating */
+.game-card .rating {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #ffb400; /* color dorado */
+}
+
+/* Botones de Edit y Delete */
+.game-card button {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Botón Edit */
+.game-card button:first-of-type {
+  background-color: #4caf50;
+  color: white;
+}
+
+.game-card button:first-of-type:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Botón Delete */
+.game-card button:last-of-type {
+  background-color: #f44336;
+  color: white;
+}
+
+.game-card button:last-of-type:hover {
+  background-color: #da190b;
+  transform: translateY(-2px);
+}
+
+/* NavLink como botón */
+.game-card a {
+  text-decoration: none;
+}
+
+/* Responsive: en pantallas pequeñas */
+@media (max-width: 768px) {
+  .game-card {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .game-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .game-card p {
+    font-size: 0.95rem;
+  }
+
+  .game-card button {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+}

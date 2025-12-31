@@ -1,4 +1,4 @@
-import "./HomePage.css"
+import '../CSS/HomePage.css';
 import GameList from "../components/GameList"
 
 function HomePage() {

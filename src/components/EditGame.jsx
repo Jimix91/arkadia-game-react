@@ -4,7 +4,7 @@ function EditGame() {
 
   return (
     <>
-      <h1>Game Review</h1>
+      <h1>Edit page</h1>
     </>
   )
 }

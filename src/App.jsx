@@ -4,6 +4,8 @@ import AboutPage from "./pages/AboutPage";
 import GameDetails from "./pages/GameDetails";
 import HomePage from "./pages/HomePage"
 import { Routes, Route } from "react-router-dom";
+import EditGame from "./components/EditGame";
+
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/create" element={<CreateGame />} />
         <Route path="/games/:gameID" element={<GameDetails />} />
-        <Route path="/games/edit/:gameID" element={<EditGame/>} />
+        <Route path="/games/:gameID/edit" element={<EditGame/>} />
       </Routes>
     </>
   )

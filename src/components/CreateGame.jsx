@@ -4,7 +4,7 @@ function CreateGame() {
 
   return (
     <>
-      <h1>Game Review</h1>
+      <h1>Add Game</h1>
     </>
   )
 }

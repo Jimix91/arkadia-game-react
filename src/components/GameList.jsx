@@ -1,11 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { MainURL } from "../config/api"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import "../CSS/HomePage.css"
 
 function GameList() {
   const [games, setGames] = useState([])
-  const {gameID}= useParams()
+
 
   useEffect(() => {
     axios
@@ -43,7 +44,7 @@ function GameList() {
 
           <div className="rating">⭐ {game.averageRating}</div>
 
-           <NavLink to= {`/games/:${gameID}`} className="detailslink"> Detalles</NavLink> 
+           <NavLink to= {`/games/${game.id}`} className="detailslink"> Detalles</NavLink> 
         </div>
       ))}
     </div>
