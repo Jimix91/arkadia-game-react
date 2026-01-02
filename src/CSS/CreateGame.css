@@ -1,0 +1,91 @@
+/* CONTENEDOR PRINCIPAL */
+.create-game {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 28px;
+  background: #1e1e1e;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  color: #f1f1f1;
+}
+
+/* TÍTULO */
+.create-game-title {
+  text-align: center;
+  margin-bottom: 26px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* FORMULARIO */
+.create-game-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* LABELS */
+.form-label {
+  font-size: 0.85rem;
+  color: #cfcfcf;
+  margin-top: 4px;
+}
+
+/* INPUTS */
+.form-input {
+  padding: 11px 14px;
+  border-radius: 9px;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+.form-input::placeholder {
+  color: #9a9a9a;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 0 2px #6c8cff;
+  background-color: #262626;
+}
+
+/* INPUT NUMBER */
+.form-input[type="number"] {
+  width: 120px;
+}
+
+/* BOTÓN */
+.form-button {
+  margin-top: 18px;
+  padding: 13px;
+  background: linear-gradient(135deg, #6c8cff, #4b63d9);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.2s ease;
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(108, 140, 255, 0.4);
+}
+
+.form-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(108, 140, 255, 0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .create-game {
+    margin: 20px;
+    padding: 22px;
+  }
+}

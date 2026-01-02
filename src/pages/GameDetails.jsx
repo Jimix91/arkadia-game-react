@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 import { MainURL } from "../config/api";
 import { useParams, NavLink } from "react-router-dom";
 import "../CSS/GameDetails.css"
+import { useNavigate } from "react-router-dom";
 
-function GameDetails() {
+
+
+
+function GameDetails(props) {
   const { gameID } = useParams(); 
   const [game, setGame] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!gameID) return;
@@ -25,6 +30,16 @@ function GameDetails() {
       });
   }, [gameID]);
 
+  const handleDelete = () => {
+  axios
+    .delete(`${MainURL}/games/${gameID}.json`)
+    .then(() => {
+
+      navigate("/"); 
+    })
+    .catch(err => console.error(err));
+};
+
   if (loading) return <p>Cargando...</p>;
   if (!game) return <p>Juego no encontrado</p>;
 
@@ -41,7 +56,7 @@ function GameDetails() {
       <NavLink to={`/games/${gameID}/edit`}>
         <button>Edit</button>
       </NavLink>
-      <button>DeleteGame</button>
+      <button onClick={handleDelete}>DeleteGame</button>
     </div>
   );
 }

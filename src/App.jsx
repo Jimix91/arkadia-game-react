@@ -11,6 +11,9 @@ import EditGame from "./components/EditGame";
 function App() {
   
 
+
+
+  
   return (
     <>
       <Navbar />
@@ -18,7 +21,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/create" element={<CreateGame />} />
-        <Route path="/games/:gameID" element={<GameDetails />} />
+        <Route path="/games/:gameID" element={<GameDetails /> } />
         <Route path="/games/:gameID/edit" element={<EditGame/>} />
       </Routes>
     </>
